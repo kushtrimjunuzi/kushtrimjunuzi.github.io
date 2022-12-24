@@ -1,0 +1,50 @@
+html {
+    font-size: 100%
+}
+body {
+    margin: 0 auto 2rem 1.5rem;
+    max-width: 70rem;
+    padding: 0 1.5rem;
+}
+div {
+    margin: 1rem;
+}
+ul {
+    margin: 0.5rem;
+    padding-left: 1rem;
+}
+li {
+    list-style-type: circle;
+    margin-bottom:1rem;
+}
+h1 {
+    font-size: 2.5rem;
+}
+h2 {
+    font-size: 1.5rem;
+}
+* {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+}
+
+.communication img {
+    height: auto;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+.communication li {
+    margin-bottom: 10rem;
+    vertical-align: center;
+}
+.no-bullet li {
+    list-style-type: none;
+    margin-bottom: 0.3rem;
+}
+.talks ul {
+    columns: 2 auto;
+}
+.experience p {
+    margin-top: 0rem;
+    margin-bottom: 0.65rem;
+}
