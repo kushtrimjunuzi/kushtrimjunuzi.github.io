@@ -1,0 +1,350 @@
+/* Basic Reset & Variables */
+:root {
+    /* Colors */
+    --color-text: #333;
+    --color-heading: #222;
+    --color-link: #007bff;
+    --color-link-hover: #0056b3;
+    --color-background: #fdfdfd;
+    --color-border: #e0e0e0;
+    --color-container-bg: #fff; /* New variable for container background */
+
+    /* Fonts */
+    --font-body: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-heading: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+
+    /* Layout */
+    --max-width: 760px;
+}
+
+/* Dark Theme */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-text: #e0e0e0;
+        --color-heading: #f0f0f0;
+        --color-link: #8ab4f8;
+        --color-link-hover: #a8c7fa;
+        --color-background: #1a1a1a;
+        --color-border: #333;
+        --color-container-bg: #2a2a2a;
+    }
+
+    body {
+        background-color: var(--color-background);
+    }
+
+    .container {
+        background-color: var(--color-container-bg);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Darker shadow for dark theme */
+    }
+
+    .profile-image-wrapper {
+        border: 3px solid var(--color-border);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Darker shadow for dark theme */
+    }
+
+    .header-content .tagline {
+        color: #b0b0b0; /* Adjusted for dark theme */
+    }
+
+    .job-duration {
+        color: #a0a0a0; /* Adjusted for dark theme */
+    }
+
+    /* General icon filter for PNGs in dark mode */
+    .contact-link .icon:not(.email-svg-icon), .contact-text .icon:not(.email-svg-icon) {
+        filter: invert(1) grayscale(100%) brightness(0.8); /* Invert and grayscale for dark mode visibility */
+    }
+
+    .contact-link:hover .icon:not(.email-svg-icon) {
+        filter: none; /* Remove filter on hover to show original icon colors */
+    }
+}
+
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-background);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding: var(--spacing-lg) var(--spacing-sm); /* Padding for small screens */
+}
+
+/* Main Container */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    background-color: var(--color-container-bg); /* Use variable */
+    padding: var(--spacing-xl);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Headings */
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--color-heading);
+    line-height: 1.2;
+    margin-bottom: var(--spacing-sm);
+}
+
+h1 {
+    font-size: 2.8rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+h2 {
+    font-size: 2rem;
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 1px solid var(--color-border);
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
+}
+
+h3 {
+    font-size: 1.4rem;
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-xs);
+}
+
+/* Paragraphs and Lists */
+p {
+    margin-bottom: var(--spacing-md);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: var(--spacing-md);
+}
+
+li {
+    margin-bottom: var(--spacing-xs);
+}
+
+/* Links */
+a {
+    color: var(--color-link);
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+    color: var(--color-link-hover);
+    text-decoration: underline;
+}
+
+/* Profile Header */
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.profile-image-wrapper {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 3px solid var(--color-border);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.header-content .tagline {
+    font-size: 1.3rem;
+    color: #666;
+    margin-top: 0.2rem;
+    margin-bottom: 0;
+    font-weight: 400;
+}
+
+/* Sections */
+.section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.section:last-of-type {
+    margin-bottom: 0;
+}
+
+/* Communication Section */
+.contact-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md) var(--spacing-lg);
+}
+
+.contact-list li {
+    margin-bottom: 0; /* Override default li margin */
+}
+
+.contact-link, .contact-text {
+    display: flex;
+    align-items: center;
+    font-size: 1.05rem;
+    color: var(--color-text);
+}
+
+.contact-link:hover {
+    text-decoration: none; /* Remove underline on hover for icon links */
+    color: var(--color-link-hover);
+}
+
+.contact-link .icon, .contact-text .icon {
+    width: 22px;
+    height: 22px;
+    margin-right: var(--spacing-xs);
+    vertical-align: middle;
+    /* Default filter for PNG icons */
+    filter: grayscale(100%);
+    transition: filter 0.2s ease-in-out;
+}
+
+.contact-link:hover .icon {
+    /* Default hover filter for PNG icons */
+    filter: grayscale(0%);
+}
+
+/* Specific styling for the email SVG icon */
+.email-svg-icon {
+    fill: var(--color-text); /* Use text color for SVG fill */
+    filter: none; /* Override any general icon filters */
+    transition: fill 0.2s ease-in-out; /* Smooth transition for fill color */
+}
+
+.contact-link:hover .email-svg-icon {
+    fill: var(--color-link-hover); /* Change fill color on hover */
+}
+
+
+/* Skills Section */
+.skills-list {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    font-weight: 400;
+}
+
+/* Experience and Education Entries */
+.job-entry, .education-entry {
+    margin-bottom: var(--spacing-lg);
+}
+
+.job-entry:last-child, .education-entry:last-child {
+    margin-bottom: var(--spacing-md); /* Keep some space before next section */
+}
+
+.job-duration {
+    font-size: 0.95rem;
+    color: #777;
+    margin-top: -0.5rem; /* Pull closer to job title */
+    margin-bottom: var(--spacing-md);
+    display: block; /* Ensure it takes its own line */
+}
+
+.job-entry ul, .education-entry ul {
+    list-style: disc; /* Use disc bullets for details */
+    margin-left: var(--spacing-md);
+    margin-bottom: 0; /* No bottom margin for the last ul in an entry */
+}
+
+.job-entry ul li, .education-entry ul li {
+    margin-bottom: var(--spacing-xs);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: var(--spacing-lg);
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+    h2 {
+        font-size: 1.7rem;
+    }
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    .profile-image-wrapper {
+        width: 90px;
+        height: 90px;
+    }
+
+    .header-content .tagline {
+        font-size: 1.1rem;
+    }
+
+    .contact-list {
+        flex-direction: column;
+        gap: var(--spacing-xs);
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: var(--spacing-md) var(--spacing-xs);
+    }
+
+    .container {
+        padding: var(--spacing-md);
+        border-radius: 4px;
+    }
+
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--spacing-sm);
+        margin-bottom: var(--spacing-lg);
+        padding-bottom: var(--spacing-md);
+    }
+
+    .profile-image-wrapper {
+        width: 80px;
+        height: 80px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+    h2 {
+        font-size: 1.5rem;
+        margin-top: var(--spacing-lg);
+        margin-bottom: var(--spacing-md);
+    }
+    h3 {
+        font-size: 1.1rem;
+    }
+
+    .skills-list {
+        font-size: 1rem;
+    }
+}
